@@ -22,12 +22,42 @@ class JobPage extends Component {
         email: "xyz@abcemployer.com",
       },
       isLoading: true,
+      newName:'',
+      address:'',
+      
     };
   }
-
   static contextType = AuthContext;
 
   componentDidMount() {
+
+    let that = this;
+
+    async function getData(){
+
+
+      // let user = localStorage.getItem('UserAuth');
+
+      // if(!user){
+      //   return;
+      // }
+
+      // let employeeId = JSON.parse(localStorage.getItem('UserAuth'))._id;
+      
+      // let res =await axios.post('/getUpdateData' , {employeeId});
+      // that.setState({
+      //   newName:res.data.name,
+      //   address:res.data.address
+
+      //   // address: "Thamel, Kathmandu",
+
+      // })
+      
+    //  let abc =  this.state.newName = res.data.name
+  
+    }
+    getData();
+
     const getParams = (pathname) => {
       const matchJobPath = matchPath(pathname, {
         path: `/job/:slug`,
@@ -42,14 +72,22 @@ class JobPage extends Component {
     if (this.state.isLoading) {
       axios
         .get(`${apiPath}/job/${currentParams.slug}`)
-        .then((response) => {
+        .then(async (response) => {
           if (response.data.resp === 1) {
             console.log(response);
+
+
+            let res = await axios.post('/api/getEmpByJob', {id:response.data.job._id});
+
+
             this.setState({
               job: response.data.job,
-              employer: response.data.job.employer,
+              employer: res.data,
               isLoading: false,
             });
+
+
+
           }
         })
         .catch((error) => {
@@ -79,7 +117,7 @@ class JobPage extends Component {
             NotificationManager.success("Successfuly applied for job", "Done");
             // alert("Successfuly applied for job");
           } else if (response.data.resp === 0) {
-            alert(response.data.message);
+            alert(response.data.message); 
           } else {
             alert("Request Failed");
           }
@@ -106,10 +144,10 @@ class JobPage extends Component {
                   <h5 className="mb-3 mr-5">Company Details</h5>
                   <ul>
                     <li>
-                      Name: <span>{employer.name}</span>
+                      Name: <span>{this.state.employer.name}</span>
                     </li>
                     <li>
-                      Address: <span>{employer.address}</span>
+                      Address: <span>{this.state.employer.address}</span>
                     </li>
                     <li>
                       Email: <span>{employer.email}</span>

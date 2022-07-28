@@ -78,7 +78,7 @@ function EditJobseekerProfile(props) {
     formData.append("gender", genderValue);
 
 
-    if (state.profile) {
+    if (state.profile && typeof state.profile != "string") {
       formData.append("profile", state.profile);
       document.getElementById('user-profile').src = URL.createObjectURL(state.profile);
       // let file = URL.createObjectURL(state.profile);
@@ -88,7 +88,7 @@ function EditJobseekerProfile(props) {
      localStorage.setItem('UserAuth', JSON.stringify(userProfile));
     }
 
-    if (state.cv) {
+    if (state.cv && typeof state.cv != "string") {
       formData.append("profile", state.cv);
       // let cv = URL.createObjectURL(state.cv);
       // setAuthStatus({ ...auth, cv: cv });
@@ -123,7 +123,7 @@ function EditJobseekerProfile(props) {
           });
         } else {
           //show failure message
-          alert("Request Failed");
+          alert("Please Complete Form");
         }
       })
       .catch((error) => {
@@ -315,14 +315,14 @@ function EditJobseekerProfile(props) {
 
         <div className="form-group my-30">
           <div className="custom-file">
-            <input
+            <input 
               type="file"
               className="custom-file-input"
               name="cv"
               placeholder="upload cv"
               onChange={onChange}
             />
-            <span id="userCV"></span>
+            <span id="userCV" ></span>
             <label className="custom-file-label" htmlFor="customFile">
               {state.cv_label}
             </label>

@@ -177,34 +177,34 @@ myApp.post("/api/employer/post-new-job", async (req, res) => {
   }
 });
 
-myApp.get('/api/employer/view-job-applicants', async(req, res)=>{
+myApp.get('/api/employer/view-job-applicants', async (req, res) => {
 
-  try{
+  try {
 
-    let jobs = await Jobs.find({"employer._id":req.query.id});
+    let jobs = await Jobs.find({ "employer._id": req.query.id });
 
 
     let applicants = []
 
-      await Promise.all(jobs.map(async (job)=>{
+    await Promise.all(jobs.map(async (job) => {
 
-      let application =  await JobApplication.findOne({job_id:job._id});
-      if(application){
+      let application = await JobApplication.findOne({ job_id: job._id });
+      if (application) {
         let c_applicants = await Users.findById(application.userid)
-        applicants.push({applicant:c_applicants, job:job});
+        applicants.push({ applicant: c_applicants, job: job });
 
-      }else{
-  console.log(20)
+      } else {
+        console.log(20)
       }
 
 
     }));
 
-    res.json({resp:1, jobseekers: applicants});
+    res.json({ resp: 1, jobseekers: applicants });
 
-  }catch(e){
+  } catch (e) {
     res.json({
-      resp:1
+      resp: 1
     });
   }
 
@@ -233,16 +233,52 @@ myApp.get("/api/employer/view-posted-jobs", async (req, res) => {
 });
 
 
+myApp.post('/api/change-password', async(req, res)=>{
+
+  try{
+
+
+    let user = await Users.findByIdAndUpdate(req.body.id, req.body);
+
+    res.json({
+      resp:1
+    })
+
+  }catch(e){
+
+res.json({})
+
+  }
+
+});
+
+myApp.post('/api/getEmpByJob', async(req, res)=>{
+
+  try{
+
+    let job = await Jobs.findById(req.body.id);
+    let user = await Users.findById(job.employer._id);
+
+    res.json(user)
+
+  }catch(e){
+
+res.json({})
+
+  }
+
+});
+
 myApp.post("/api/employer/edit-profile", upload.array('logo', 12), async (req, res) => {
 
   try {
 
 
-    if(req.files[0]){
+    if (req.files[0]) {
 
       req.body.logo = req.files[0].path.slice(21);
     }
-    if(req.files[1]){
+    if (req.files[1]) {
 
       req.body.cover = req.files[1].path.slice(21);
     }
@@ -285,6 +321,17 @@ myApp.post("/api/jobseeker/edit-profile", upload.array('profile', 12), async (re
 
 });
 
+
+myApp.post('/getUpdateData', async (req, res) => {
+  try {
+    let findUser = await Users.findById(req.body.employeeId);
+    res.json(findUser);
+  } catch (e) {
+    res.json({
+      success: false,
+    })
+  }
+})
 
 
 

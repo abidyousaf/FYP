@@ -2,7 +2,9 @@
     opacity:1!important
 }
 
-
+a{
+    cursor: pointer !important;
+}
 #userPic{
     
     display: block;

@@ -5,6 +5,7 @@ import { AuthContext } from "../contexts/AuthContext";
 import {
   apiPath,
 } from "../utils/Consts";
+import { NotificationManager } from "react-notifications";
 
 export default () => {
   const [oldPassword, setOldPassword] = useState("");
@@ -16,8 +17,15 @@ export default () => {
     e.preventDefault();
     removeError();
 
+    let puranaPasword = JSON.parse(localStorage.UserAuth).password;
+
+    if(puranaPasword != oldPassword){
+      return NotificationManager.error("Old password not matched!");
+    }
+
     axios
       .post(apiPath + "/change-password", {
+        id:JSON.parse(localStorage.UserAuth)._id,
         password,
         old_password: oldPassword,
         password_confirmation: confirmPassword,
@@ -26,7 +34,8 @@ export default () => {
       .then((response) => {
         if (response.data.resp === 1) {
           //show success message
-          alert("password successfully changed");
+          NotificationManager.success("password successfully changed")
+          // alert("password successfully changed");
           //reset state values
           setConfirmPassword("");
           setOldPassword("");

@@ -52,7 +52,7 @@ class ViewJobApplicant extends Component {
                 <th>S.N</th>
                 <th>Name</th>
                 <th>Email</th>
-                <th>Job Title</th>
+                <th>CV</th>
                 <th>Action</th>
               </tr>
             </thead>
@@ -77,7 +77,7 @@ class ViewJobApplicant extends Component {
                             title="View CV"
                             // target="_blank"
                           >
-                            <i className="fas fa-eye text-white"></i>
+                            <i className="">cv</i>
                           </a>
                         ) : (
                           <span className="text-info">No CV</span>

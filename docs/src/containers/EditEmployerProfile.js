@@ -126,7 +126,7 @@ function EditCompanyProfile(props) {
           //show success message
           NotificationManager.success("Successfuly edited profile");
 
-          //uodate context values
+          //update context values
           const { setAuthStatus } = this.context;
           const { email, entity, token } = response.data.user;
           setAuthStatus({ email, entity, token });

@@ -66,6 +66,8 @@ const Register = (props) => {
             setUserEmail("");
             setUserPassword("");
             setConfirmPassword("");
+            setUserPhone("")
+            setUserAddress("")
             NotificationManager.success("User created successfully", "Done");
           } else {
             showError(response.data.message);

@@ -6,6 +6,9 @@
     --text: #000000d9;
     --text-size: 1.125rem;
 }
+#neww{
+    background-color: black;
+}
 
 * {
     font-size: 100%;
@@ -697,9 +700,10 @@ h5 {
     height: 40px;
 }
 
-.edit-profile-form-wrap input[type="file"] {
+.edit-profile-form-wrap input[type="file"]  {
     padding-top: 11px;
     height: 40px;
+    cursor: pointer;
 }
 
 .edit-profile-form-wrap .radio-wrapper {
@@ -712,7 +716,7 @@ h5 {
 
 .edit-profile-form-wrap .radio-wrapper input {
     position: absolute;
-    opacity: 0;
+    /* opacity: 1; */
     cursor: pointer;
 }
 
@@ -763,6 +767,7 @@ h5 {
 .edit-profile-form-wrap .btn-file-upload {
     width: 100%;
     position: relative;
+   
 }
 
 .edit-profile-form-wrap .btn-file-upload:after {
