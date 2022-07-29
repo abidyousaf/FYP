@@ -1,0 +1,66 @@
+.backdrop{
+    opacity:1!important
+}
+
+a{
+    cursor: pointer !important;
+}
+#userPic{
+    
+    display: block;
+    position: relative;
+    top: 2px;
+    height: 21px;
+    background: white;
+    width: 90%;
+    position: absolute;
+    z-index: 4;
+    left: 10px;
+
+}
+#userCV{
+
+
+    display: block;
+    position: relative;
+    top: 5px;
+    height: 21px;
+    background-color: black;
+    background: white;
+    width: 90%;
+    position: absolute;
+    z-index: 4;
+    left: 10px;
+
+}
+
+
+
+#cover-box{
+    
+    display: block;
+    position: relative;
+    top: 2px;
+    height: 21px;
+    background: white;
+    width: 90%;
+    position: absolute;
+    z-index: 4;
+    left: 10px;
+
+}
+#logo-box{
+
+
+    display: block;
+    position: relative;
+    top: 5px;
+    height: 21px;
+    background-color: black;
+    background: white;
+    width: 90%;
+    position: absolute;
+    z-index: 4;
+    left: 10px;
+
+}

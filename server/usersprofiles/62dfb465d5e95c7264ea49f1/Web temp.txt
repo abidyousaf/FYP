@@ -1,0 +1,212 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+
+    <style>
+        .red-btn {
+            background: #eb5556;
+            border: none;
+            padding: 7px;
+            border-radius: 24px;
+            color: white;
+        }
+
+        #blackPatti {
+            background-color: black;
+            padding-top: 10px;
+            padding-bottom: 10px;
+            text-align: center;
+            color: white;
+        }
+
+        header {
+            background-color: #eb5556;
+        }
+
+        ol {
+            display: flex;
+            list-style-type: none;
+        }
+
+        ol li {
+            flex-grow: 1;
+            vertical-align: top;
+            color: white;
+
+        }
+
+        nav {
+            padding-top: 15px;
+            width: 80%;
+            margin: auto;
+
+        }
+
+        * {
+            margin: 0;
+        }
+
+        li:first-child {
+            flex-grow: 6;
+        }
+
+        .slider {
+            position: relative;
+        }
+
+        .slider img {
+            width: 100%;
+        }
+
+        .slider-content {
+            color: white;
+            position: absolute;
+            top: 30%;
+            left: 15%;
+            width: 28%;
+        }
+
+        .slider-content button {
+            background: transparent;
+            border: 1px solid white;
+            color: white;
+            position: relative;
+            top: 10px;
+            /* margin-top: 5px; */
+            border-radius: 5px;
+
+        }
+
+        .flex {
+            display: flex;
+            /* justify-content: space-evenly; */
+        }
+
+        .flex .exp-width {
+            width: 50%;
+        }
+
+        .center {
+            width: 70%;
+            margin: auto;
+        }
+
+        .black {
+            width: 250px;
+            height: 200px;
+            background: black;
+            position: relative;
+        }
+
+        .boxes-container {
+            width: 80%;
+            margin: auto;
+            margin-top: 40px;
+            justify-content: space-around;
+        }
+
+        .circle {
+            position: absolute;
+            border: 10px solid white;
+
+            width: 100px;
+            height: 100px;
+            border-radius: 100px;
+            bottom: -57px;
+            right: -57px;
+        }
+
+        .triangle {
+
+            position: absolute;
+            bottom: 0;
+            right: 0;
+            border-left: 50px solid transparent;
+            border-right: 50px solid transparent;
+            border-top: 0px solid transparent;
+            border-bottom: 72px solid #ffffff;
+
+        }
+
+        .triangle-black {
+            position: absolute;
+            bottom: 1px;
+            right: 7px;
+            border-left: 41px solid transparent;
+            border-right: 43px solid transparent;
+            border-top: 31px solid transparent;
+            border-bottom: 59px solid black;
+
+        }
+    </style>
+</head>
+
+<body>
+
+    <header>
+        <div id="blackPatti">
+            <button class="red-btn">Press this to get info</button>
+            <span>
+                How we're responding to COVID-19
+            </span>
+        </div>
+        <nav>
+            <ol>
+                <li>
+                    <img src="logo.PNG" alt="">
+                </li>
+                <li>Home</li>
+                <li>Contact</li>
+                <li>About</li>
+                <li>Portfolio</li>
+            </ol>
+        </nav>
+    </header>
+
+    <div class="slider">
+        <img src="home.jpg" alt="">;
+        <div class="slider-content">
+            <h1>Serving you</h1>
+            <h1>since 1989.</h1>
+            <p>
+                Lorem ipsum, dolor sit amet consectetur adipisicing elit. Eaque aliquid eveniet quidem? Molestias
+            </p>
+            <button>More Details</button>
+        </div>
+    </div>
+
+    <div class="flex center">
+        <div class="exp-width">
+            <h6>WAYS TO SUPPORT</h6>
+            <h2>Support Acme Outdoors.</h2>
+        </div>
+        <div class="exp-width">
+            <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Perferendis quidem asperiores praesentium id
+                soluta quaerat consectetur, temporibus commodi, eum, explicabo deserunt perspiciatis accusamus voluptate
+                dolor libero reiciendis quas. Quae, culpa!</p>
+        </div>
+    </div>
+
+    <div class="flex boxes-container">
+
+        <div class="black">
+            <span class="circle"></span>
+        </div>
+        <div class="black">
+            <span class="triangle"></span>
+            <span class="triangle-black"></span>
+        </div>
+        <div class="black">
+            <span class="rectangle"></span>
+        </div>
+
+    </div>
+
+</body>
+
+</html>
